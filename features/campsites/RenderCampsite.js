@@ -9,7 +9,12 @@ const RenderCampsite = ({ campsite }) => {
         return (
             <Card containerStyle={{ padding: 0 }}>
                 <Card.Image source={campsite.image}>
-                    <View style={{ justifyContent: 'center', flex: 1 }}>
+                    <View 
+                        style={{ 
+                            justifyContent: 'center', 
+                            flex: 1 
+                        }}
+                    >
                         <Text
                             style={{
                                 color: 'white',

@@ -9,7 +9,10 @@ const DirectoryScreen = ({navigation}) => { //Destructure a prop value of 'navig
     const [campsites, setCampsites] = useState(CAMPSITES);
     const renderDirectoryItem = ({ item: campsite }) => {
         return (
-            <ListItem onPress={() => navigation.navigate('CampsiteInfo', {campsite})}>
+            <ListItem onPress={() => 
+              navigation.navigate('CampsiteInfo', {campsite})
+              }
+            >
                 <Avatar source={campsite.image} rounded />
                 <ListItem.Content>
                     <ListItem.Title>{campsite.name}</ListItem.Title>
@@ -21,7 +24,7 @@ const DirectoryScreen = ({navigation}) => { //Destructure a prop value of 'navig
 
     return (
         <FlatList
-            data={props.campsites}
+            data={campsites}
             renderItem={renderDirectoryItem}
             keyExtractor={(item) => item.id.toString()}
         />

@@ -1,7 +1,7 @@
 import  RenderCampsite from '../features/campsites/RenderCampsite';
 
 //Destructure route prop in parameter list of CampsiteInfoScreen function, replacing previous value of props
-const CampsiteInfoScreen = (route) => {
+const CampsiteInfoScreen = ({route}) => {
     //Destructure to create a 'campsite' variable from 'route.params' object
     const {campsite} = route.params; //pass this in <RenderCampsite>
     //it is using RenderCampsite to pass a prop
