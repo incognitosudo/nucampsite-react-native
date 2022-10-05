@@ -20,9 +20,9 @@ const DirectoryNavigator = () => {
         headerTintColor: '#fff'
     }} >
         <Stack.Screen name='Directory' component='DirectoryScreen' options={title: 'Campsite Directory'} />
-        <Stack.Screen name='CampsiteInfo' component='CampsiteInfoScreen' options = ({route}) => ({
-            title: route.params.campsite.name
-        })
+        <Stack.Screen name='CampsiteInfo' component='CampsiteInfoScreen' options=({ route }) => ({
+    title: route.params.campsite.name
+})
 
         
          />
@@ -30,21 +30,27 @@ const DirectoryNavigator = () => {
 }
 
 const Main = () => {
-    const [campsites, setCampsites] = useState(CAMPSITES);
-    const [selectedCampsiteId, setSelectedCampsiteId] = useState();
+    //remove 2 const declarations making use of useState() hook
+    //const [campsites, setCampsites] = useState(CAMPSITES);
+    //const [selectedCampsiteId, setSelectedCampsiteId] = useState();
     return (
-        <View style={{ flex: 1 }}>
-            <DirectoryScreen
+        //add another style of property of paddingTop equal to ternary operator expression.
+        <View style={{ flex: 1 }} style={{Platform.OS === 'ios' ? 0 : Constants.statusBarHeight}}>
+
+            {/* Remove DirectoryScreen and CampsiteInfoScreen tags that are being returned from main */}
+            {/*<DirectoryScreen
                 campsites={campsites}
                 onPress={(campsiteId) => setSelectedCampsiteId(campsiteId)} //campsiteId that was click as the only parameter, and setSelectedCampsiteId to update the selectedCampsiteId state variable with the new value
-            />
+            />*/}
+            {/*
             <CampsiteInfoScreen //were going to acquire the campsite array to filter out only the campsite that the user has selected
                 campsite={
                     campsites.filter(
                         (campsite) => campsite.id === selectedCampsiteId
                     )[0]
                 }
-            />
+            /> */}
+            <DirectoryNavigator />
         </View>
 );
 };
