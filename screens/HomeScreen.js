@@ -60,10 +60,17 @@ const HomeScreen = () => {
     //create constant for feautured campsite object name 'featCampsite'. Set 'featCampsite' equal to a call to 'campsites.find()', passing an arrow func as argument. Give arrow func parameter 'item' and return value 'item.featured'
     const featCampsite= campsites.find((item)=> item.featured);
 
+    //set two more constants to hold values of featured promotion and featured partner with constants named 'featPromotion' and 'featPartner', setting them equal to their featured item using 'find' method on 'promotions' and 'partners' arrays respectively.
+    const featPromotion = find(promotions);
+    const featPartner = find(partners)
+
     return (
         //we use ScrollView to render our feautures item cards. Render groups or list of item. Loads all child component vs flatlist render only a part of a screen (lazy loading)
         <ScrollView>
             <Text>Home Screen</Text>
+            <FeaturedItem item={featCampsite} /> {/* Self closing 'FeaturedItem' passing it a prop of 'item' set equal to 'featCampsite' */}
+            <FeaturedItem item={featPromotion} />
+            <FeaturedItem item={featPartner} />
         </ScrollView>
     )
 }
