@@ -9,6 +9,8 @@ import HomeScreen from "./HomeScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Constants } from "expo-constants";
 
+const Drawer = createDrawerNavigator();
+
 //const named 'screenOptions' set equal to object being passed into 'screenOptions' prop in 'DirectoryNavigator'
 const screenOptions = {
     headerTintColor: '#fff',
@@ -24,11 +26,15 @@ const HomeNavigator = () => {
 
     //return statement with opening and closing tag of Stack.Navigator
     return (
-        <Stack.Navigator>
-            
-        </Stack.Navigator>
-    )
-}
+        <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen
+            name='Home'
+            component={HomeScreen}
+            options={{ title: 'Home' }}
+        />
+    </Stack.Navigator>
+    );
+};
 
 const DirectoryNavigator = () => {
     //create constant named 'Stack' set equal to a call to 'createStackNavigator()' passing no arguments
@@ -36,23 +42,23 @@ const DirectoryNavigator = () => {
     //Setup return statement for 'DirectoryNavigator component returning a Stack.Navigator as top level component, using an opening and closing tag
     return (
     //inside Stack.Navigator opening tag, pass in a prop called initalRouteName, set equal to string 'Directory'. Still inside the Stack.Navigator opening and lcosing tags, pass in another prop called screenOptions, set equal to the follwoing object(wrap this obejct in a second set of curly brackets):
-    <Stack.Navigator 
-        initialRouteName='Directory' 
-        screenOptions={screenOptions}
-    >
-        <Stack.Screen 
-            name='Directory' 
-            component={DirectoryScreen}
-            options={{title: 'Campsite Directory'}} 
-        />
-        <Stack.Screen 
-            name='CampsiteInfo' 
-            component={CampsiteInfoScreen}
-            options={({ route }) => ({
-                title: route.params.campsite.name
-            })}
-         />
-    </Stack.Navigator>
+        <Stack.Navigator
+            initialRouteName='Directory'
+            screenOptions={screenOptions}
+        >
+            <Stack.Screen
+                name='Directory'
+                component={DirectoryScreen}
+                options={{ title: 'Campsite Directory' }}
+            />
+            <Stack.Screen
+                name='CampsiteInfo'
+                component={CampsiteInfoScreen}
+                options={({ route }) => ({
+                    title: route.params.campsite.name
+                })}
+            />
+        </Stack.Navigator>
     );
 };
 
@@ -84,7 +90,21 @@ const Main = () => {
                     )[0]
                 }
             /> */}
-            <Drawq
+            <Drawer.Navigator
+                initialRouteName='Home'
+                drawerStyle={{ backgroundColor: '#CEC8FF' }}
+            >
+                <Drawer.Screen
+                    name='Home'
+                    component={HomeNavigator}
+                    options={{ title: 'Home' }}
+                />
+                <Drawer.Screen
+                    name='Directory'
+                    component={DirectoryNavigator}
+                    options={{ title: 'Directory' }}
+                />
+            </Drawer.Navigator>
         </View>
     );
 };

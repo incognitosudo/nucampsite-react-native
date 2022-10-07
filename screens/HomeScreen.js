@@ -67,7 +67,7 @@ const HomeScreen = () => {
     return (
         //we use ScrollView to render our feautures item cards. Render groups or list of item. Loads all child component vs flatlist render only a part of a screen (lazy loading)
         <ScrollView>
-            <Text>Home Screen</Text>
+            
             <FeaturedItem item={featCampsite} /> {/* Self closing 'FeaturedItem' passing it a prop of 'item' set equal to 'featCampsite' */}
             <FeaturedItem item={featPromotion} />
             <FeaturedItem item={featPartner} />
