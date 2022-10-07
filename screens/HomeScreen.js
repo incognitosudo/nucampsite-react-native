@@ -44,11 +44,11 @@ const FeaturedItem = ({item}) => {
                     {item.description  /* This displays item description */}
                 </Text>
             </Card>
-        )
-    }
+        );
+    };
     //outside if statement block return an empty 'View' component using a self closing tag
     return <View />;
-}
+};
 
 const HomeScreen = () => {
     //state variable named 'campsites' and a setting function named setCampsites equal to useState hook passing in 'CAMPSITES' array as an argument.
@@ -58,11 +58,11 @@ const HomeScreen = () => {
     const [partners, setPartners]= useState(PARTNERS);
 
     //create constant for feautured campsite object name 'featCampsite'. Set 'featCampsite' equal to a call to 'campsites.find()', passing an arrow func as argument. Give arrow func parameter 'item' and return value 'item.featured'
-    const featCampsite= campsites.find((item)=> item.featured);
+    const featCampsite = campsites.find((item) => item.featured);
 
     //set two more constants to hold values of featured promotion and featured partner with constants named 'featPromotion' and 'featPartner', setting them equal to their featured item using 'find' method on 'promotions' and 'partners' arrays respectively.
-    const featPromotion = find(promotions);
-    const featPartner = find(partners)
+    const featPromotion = promotions.find((item) => item.featured);
+    const featPartner = partners.find((item) => item.featured);
 
     return (
         //we use ScrollView to render our feautures item cards. Render groups or list of item. Loads all child component vs flatlist render only a part of a screen (lazy loading)

@@ -5,6 +5,30 @@ import CampsiteInfoScreen from "./CampsiteInfoScreen";
 import DirectoryScreen from "./DirectoryScreen";
 import { Constants } from "expo-constants";
 import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from "./HomeScreen";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { Constants } from "expo-constants";
+
+//const named 'screenOptions' set equal to object being passed into 'screenOptions' prop in 'DirectoryNavigator'
+const screenOptions = {
+    headerTintColor: '#fff',
+    headerStyle: { backgroundColor: '#5637DD'}
+}
+
+//func component named 'HomeNavigator' 
+const HomeNavigator = () => {
+    //constant named 'Stack' equal to a call to 'createStackNavigator()' with nothing in parameter
+    const Stack = createStackNavigator();
+
+    //prop 'screenOptions' equal to 'screenOptions' variable to 'Stack.Navigator' component.
+
+    //return statement with opening and closing tag of Stack.Navigator
+    return (
+        <Stack.Navigator>
+            
+        </Stack.Navigator>
+    )
+}
 
 const DirectoryNavigator = () => {
     //create constant named 'Stack' set equal to a call to 'createStackNavigator()' passing no arguments
@@ -13,13 +37,8 @@ const DirectoryNavigator = () => {
     return (
     //inside Stack.Navigator opening tag, pass in a prop called initalRouteName, set equal to string 'Directory'. Still inside the Stack.Navigator opening and lcosing tags, pass in another prop called screenOptions, set equal to the follwoing object(wrap this obejct in a second set of curly brackets):
     <Stack.Navigator 
-        initialRouteName="Directory" 
-        screenOptions={{
-            headerStyle: {
-                backgroundColor: '#5637DD'
-        }, 
-        headerTintColor: '#fff'
-        }} 
+        initialRouteName='Directory' 
+        screenOptions={screenOptions}
     >
         <Stack.Screen 
             name='Directory' 
@@ -65,7 +84,7 @@ const Main = () => {
                     )[0]
                 }
             /> */}
-            <DirectoryNavigator />
+            <Drawq
         </View>
     );
 };
