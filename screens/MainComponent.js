@@ -7,7 +7,7 @@ import { Constants } from "expo-constants";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./HomeScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { Constants } from "expo-constants";
+//import  Constants  from "expo-constants";
 
 const Drawer = createDrawerNavigator();
 
@@ -44,8 +44,13 @@ const DirectoryNavigator = () => {
     //inside Stack.Navigator opening tag, pass in a prop called initalRouteName, set equal to string 'Directory'. Still inside the Stack.Navigator opening and lcosing tags, pass in another prop called screenOptions, set equal to the follwoing object(wrap this obejct in a second set of curly brackets):
         <Stack.Navigator
             initialRouteName='Directory'
-            screenOptions={screenOptions}
-        >
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: '#5637DD'
+                },
+                headerTintColor: '#fff'
+            }}
+>
             <Stack.Screen
                 name='Directory'
                 component={DirectoryScreen}
