@@ -10,4 +10,4 @@ const CampsiteInfoScreen = ({route}) => {
 
 };
 
-export default CampsiteInfoScreen;
+export default CampsiteInfoScreen;//test

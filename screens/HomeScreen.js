@@ -28,9 +28,9 @@ const FeaturedItem = ({item}) => {
                                 color: 'white',
                                 textAlign: 'center',
                                 fontSize: 20
-                            }} 
+                            }} // This displays name of item inside curly brackets 
                         >
-                            {item.name /* This displays name of item inside curly brackets */}
+                            {item.name }
                         </Text>
                     </View>
                 </Card.Image>
@@ -38,10 +38,10 @@ const FeaturedItem = ({item}) => {
                 {/* Text tag after Card.Image closing tag with 'style' prop with property 'margin' set to '20' and between opening and closing tags, display item description with 'item.description' inside curly brackets */}
                 <Text
                     style={{
-                        margin: 20,
-                    }}
+                        margin: 20
+                    }} //This displays item description *
                 > 
-                    {item.description  /* This displays item description */}
+                    {item.description }
                 </Text>
             </Card>
         );
